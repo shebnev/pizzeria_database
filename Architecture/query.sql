@@ -1,10 +1,10 @@
 BEGIN; -- начало транзакции;
 
 DROP DATABASE IF EXISTS pizzeria;
-CREATE DATABASE IF NOT EXISTS pizzeria;  -- Удалить, если существует, создать и использовать БД pizzeria;
+CREATE DATABASE pizzeria;  -- Удалить, если существует, создать и использовать БД pizzeria;
 USE pizzeria; 
 
--- Удалить, если существуют, сущности;
+-- Удалить, если существуют, таблицы;
 DROP TABLE IF EXISTS compound,
 					 pizzaTypes,
 					 pizza,
@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS compound,
 
 /* Информация о курьерах.
 Столбцы: имя, фамилия, город, тип доставок. 
-delivery.id - PK и FK для orders.*/
+delivery.id - FK для orders.*/
 
 CREATE TABLE delivery (
      id              INT                                           NOT NULL AUTO_INCREMENT,
@@ -45,7 +45,8 @@ CREATE TABLE pizza_types (
 );
 
 /* Основное отношение товара. 
-Столбцы: идентификатор - PK, название товара, type_id - FK для pizza_types.*/
+Столбцы: идентификатор - PK, название товара
+type_id - FK для pizza_types.*/
 
 CREATE TABLE pizza (
      pizza_id        INT                                           NOT NULL AUTO_INCREMENT,
@@ -76,7 +77,7 @@ CREATE TABLE customer (
 
 /* Инфо о заказах. Основное аналитическое отношение.
 Храним номер, время и статус заказа, номер клиента и курьера.
-order.id - FK для order_items.*/
+order_id - FK для order_items.*/
 
 CREATE TABLE orders ( 
 	id              INT                                            NOT NULL AUTO_INCREMENT,
