@@ -11,7 +11,7 @@
 
 ## Стек
 
-* **PostgreSQL** (DDL, DML, Views, Indexes)
+* **MySQL** (DDL, DML, Views, Indexes)
 * **Python** (pandas, Faker)
 * **Power BI**
 
